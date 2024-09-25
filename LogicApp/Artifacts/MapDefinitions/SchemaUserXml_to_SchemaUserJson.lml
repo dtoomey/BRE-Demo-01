@@ -1,0 +1,17 @@
+$version: 1
+$input: XML
+$output: JSON
+$sourceSchema: SchemaUser.xsd
+$targetSchema: SchemaUserJson.json
+$sourceNamespaces:
+  ns0: http://BizTalk_Server_Project1.SchemaUser
+  b: http://schemas.microsoft.com/BizTalk/2003
+  xs: http://www.w3.org/2001/XMLSchema
+root:
+  UserDetails:
+    Age: /ns0:Root/UserDetails/Age
+    Name: /ns0:Root/UserDetails/Name
+    ZipCode: /ns0:Root/UserDetails/zipCode
+  Status:
+    Gold: /ns0:Root/Status/Gold
+    Discount: /ns0:Root/Status/Discount

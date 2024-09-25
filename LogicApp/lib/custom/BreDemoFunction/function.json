@@ -1,0 +1,99 @@
+{
+  "Name": null,
+  "ScriptFile": "../bin/BreDemoFunction.dll",
+  "FunctionDirectory": null,
+  "EntryPoint": "INTEGRATE2024.BreDemoFunction.RunRules",
+  "Language": "net472",
+  "Properties": {},
+  "Bindings": [
+    {
+      "Name": "ruleSetName",
+      "Connection": null,
+      "Type": "workflowActionTrigger",
+      "Properties": {},
+      "Direction": "In",
+      "DataType": null,
+      "Cardinality": null,
+      "IsTrigger": true,
+      "IsReturn": false,
+      "Raw": null
+    }
+  ],
+  "InputBindings": [
+    {
+      "Name": "ruleSetName",
+      "Connection": null,
+      "Type": "workflowActionTrigger",
+      "Properties": {},
+      "Direction": "In",
+      "DataType": null,
+      "Cardinality": null,
+      "IsTrigger": true,
+      "IsReturn": false,
+      "Raw": null
+    }
+  ],
+  "OutputBindings": [],
+  "Trigger": {
+    "Name": "ruleSetName",
+    "Connection": null,
+    "Type": "workflowActionTrigger",
+    "Properties": {},
+    "Direction": "In",
+    "DataType": null,
+    "Cardinality": null,
+    "IsTrigger": true,
+    "IsReturn": false,
+    "Raw": null
+  },
+  "InputSchema": {
+    "type": "object",
+    "properties": {
+      "ruleSetName": {
+        "type": "string"
+      },
+      "documentType": {
+        "type": "string"
+      },
+      "inputXml": {
+        "type": "string"
+      },
+      "purchaseAmount": {
+        "type": "integer"
+      },
+      "zipCode": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "ruleSetName",
+      "documentType",
+      "inputXml",
+      "purchaseAmount",
+      "zipCode"
+    ]
+  },
+  "OutputSchema": {
+    "type": "object",
+    "properties": {
+      "XmlDoc": {
+        "type": "string"
+      },
+      "DiscountedPurchaseAmount": {
+        "type": "number"
+      },
+      "TaxRate": {
+        "type": "number"
+      },
+      "PurchaseAmountPostTax": {
+        "type": "number"
+      }
+    },
+    "required": [
+      "XmlDoc",
+      "DiscountedPurchaseAmount",
+      "TaxRate",
+      "PurchaseAmountPostTax"
+    ]
+  }
+}

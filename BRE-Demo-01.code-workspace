@@ -1,0 +1,25 @@
+{
+  "folders": [
+    {
+      "name": "Functions",
+      "path": "./Function"
+    },
+    {
+      "name": "LogicApp",
+      "path": "./LogicApp"
+    },
+    {
+      "name": "BRE-Demo-01",
+      "path": "."
+    }
+  ],
+  "settings": {
+    "terminal.integrated.env.windows": {
+      "PATH": "C:\\Users\\danie\\.azurelogicapps\\dependencies\\DotNetSDK;${env:PATH}"
+    },
+    "omnisharp.dotNetCliPaths": [
+      "C:\\Users\\danie\\.azurelogicapps\\dependencies\\DotNetSDK"
+    ],
+    "azurite.location": "C:\\Users\\danie\\.azurelogicapps\\.azurite"
+  }
+}

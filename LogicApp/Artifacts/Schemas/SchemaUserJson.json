@@ -1,0 +1,36 @@
+{
+    "type": "object",
+    "properties": {
+        "UserDetails": {
+            "type": "object",
+            "properties": {
+                "Age": {
+                    "type": "integer"
+                },
+                "Name": {
+                    "type": "string"
+                },
+                "ZipCode": {
+                    "type": "string"
+                }
+            }
+        },
+        "Status": {
+            "type": "object",
+            "properties": {
+                "Gold": {
+                    "type": "boolean"
+                },
+                "Discount": {
+                    "type": "integer"
+                }
+            }
+        },
+        "PurchaseAmount": {
+            "type": "float"
+        },
+        "TaxRate": {
+            "type": "integer"
+        }
+    }
+}

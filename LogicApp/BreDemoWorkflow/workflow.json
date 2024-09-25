@@ -1,0 +1,149 @@
+{
+    "definition": {
+        "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+        "actions": {
+            "Call_a_local_rules_function_in_this_logic_app": {
+                "type": "InvokeFunction",
+                "inputs": {
+                    "functionName": "BreDemoFunction",
+                    "parameters": {
+                        "ruleSetName": "SampleRuleSet",
+                        "documentType": "SchemaUser",
+                        "inputXml": "@{body('Transform_using_Data_Mapper_XSLT')}",
+                        "purchaseAmount": "@triggerBody()?['PurchaseAmount']",
+                        "zipCode": "@triggerBody()?['UserDetails']?['ZipCode']"
+                    }
+                },
+                "runAfter": {
+                    "Transform_using_Data_Mapper_XSLT": [
+                        "SUCCEEDED"
+                    ]
+                }
+            },
+            "Response": {
+                "type": "Response",
+                "kind": "http",
+                "inputs": {
+                    "statusCode": 200,
+                    "body": "@outputs('Compose')"
+                },
+                "runAfter": {
+                    "Compose": [
+                        "SUCCEEDED"
+                    ]
+                }
+            },
+            "Transform_using_Data_Mapper_XSLT": {
+                "type": "Xslt",
+                "kind": "DataMapper",
+                "inputs": {
+                    "content": "@triggerBody()",
+                    "map": {
+                        "source": "LogicApp",
+                        "name": "SchemaUserJson_to_SchemaUserXml.xslt"
+                    }
+                },
+                "runAfter": {}
+            },
+            "Parse_JSON": {
+                "type": "ParseJson",
+                "inputs": {
+                    "content": "@body('Call_a_local_rules_function_in_this_logic_app')",
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "XmlDoc": {
+                                "type": "string"
+                            },
+                            "PurchaseAmountPostTax": {
+                                "type": "integer"
+                            }
+                        }
+                    }
+                },
+                "runAfter": {
+                    "Call_a_local_rules_function_in_this_logic_app": [
+                        "SUCCEEDED"
+                    ]
+                }
+            },
+            "Compose": {
+                "type": "Compose",
+                "inputs": {
+                    "Result": "@body('Transform_using_Data_Mapper_XSLT_1')",
+                    "PurchaseAmount": "@body('Call_a_local_rules_function_in_this_logic_app')?['DiscountedPurchaseAmount']",
+                    "TaxRate": "@body('Call_a_local_rules_function_in_this_logic_app')?['TaxRate']",
+                    "PurchaseAmountPostTax": "@body('Parse_JSON')?['PurchaseAmountPostTax']"
+                },
+                "runAfter": {
+                    "Transform_using_Data_Mapper_XSLT_1": [
+                        "SUCCEEDED"
+                    ]
+                }
+            },
+            "Transform_using_Data_Mapper_XSLT_1": {
+                "type": "Xslt",
+                "kind": "DataMapper",
+                "inputs": {
+                    "content": "@body('Parse_JSON')?['XmlDoc']",
+                    "map": {
+                        "source": "LogicApp",
+                        "name": "SchemaUserXml_to_SchemaUserJson.xslt"
+                    }
+                },
+                "runAfter": {
+                    "Parse_JSON": [
+                        "SUCCEEDED"
+                    ]
+                }
+            }
+        },
+        "triggers": {
+            "When_a_HTTP_request_is_received": {
+                "type": "Request",
+                "kind": "Http",
+                "inputs": {
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "UserDetails": {
+                                "type": "object",
+                                "properties": {
+                                    "Age": {
+                                        "type": "integer"
+                                    },
+                                    "Name": {
+                                        "type": "string"
+                                    },
+                                    "ZipCode": {
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            "Status": {
+                                "type": "object",
+                                "properties": {
+                                    "Gold": {
+                                        "type": "boolean"
+                                    },
+                                    "Discount": {
+                                        "type": "integer"
+                                    }
+                                }
+                            },
+                            "PurchaseAmount": {
+                                "type": "integer"
+                            },
+                            "TaxRate": {
+                                "type": "integer"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "contentVersion": "1.0.0.0",
+        "outputs": {}
+    },
+    "kind": "Stateful"
+}

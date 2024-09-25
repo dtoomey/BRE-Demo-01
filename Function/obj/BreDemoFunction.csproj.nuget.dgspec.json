@@ -1,0 +1,78 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\INTEGRATE2024\\BRE-Demo-01\\Function\\BreDemoFunction.csproj": {}
+  },
+  "projects": {
+    "C:\\INTEGRATE2024\\BRE-Demo-01\\Function\\BreDemoFunction.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\INTEGRATE2024\\BRE-Demo-01\\Function\\BreDemoFunction.csproj",
+        "projectName": "BreDemoFunction",
+        "projectPath": "C:\\INTEGRATE2024\\BRE-Demo-01\\Function\\BreDemoFunction.csproj",
+        "packagesPath": "C:\\Users\\danie\\.nuget\\packages\\",
+        "outputPath": "C:\\INTEGRATE2024\\BRE-Demo-01\\Function\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\danie\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net472"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net472": {
+            "targetAlias": "net472",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net472": {
+          "targetAlias": "net472",
+          "dependencies": {
+            "Microsoft.Azure.WebJobs.Core": {
+              "target": "Package",
+              "version": "[3.0.39, )"
+            },
+            "Microsoft.Azure.Workflows.WebJobs.Sdk": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
+            "Microsoft.Extensions.Logging": {
+              "target": "Package",
+              "version": "[2.1.1, )"
+            },
+            "Microsoft.Extensions.Logging.Abstractions": {
+              "target": "Package",
+              "version": "[2.1.1, )"
+            },
+            "Microsoft.NET.Sdk.Functions": {
+              "target": "Package",
+              "version": "[4.2.0, )"
+            },
+            "Microsoft.NETFramework.ReferenceAssemblies": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Users\\danie\\.azurelogicapps\\dependencies\\DotNetSDK\\sdk\\8.0.401\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

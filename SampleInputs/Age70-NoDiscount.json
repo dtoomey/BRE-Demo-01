@@ -1,0 +1,13 @@
+{
+    "UserDetails": {
+        "Age": 70,
+        "Name": "UserName",
+        "ZipCode": "98053"
+    },
+    "Status": {
+        "Gold": false,
+        "Discount": 0
+    },
+    "PurchaseAmount": 1100,
+    "TaxRate": 0
+}
