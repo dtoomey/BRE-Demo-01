@@ -26,3 +26,24 @@ The following sample request can be used to invoke the Logic App and test the ru
     "PurchaseAmount": 900
 }
 ```
+
+Response generated from above:
+
+```
+{
+    "Result": {
+        "UserDetails": {
+            "Age": 70,
+            "Name": "John Doe",
+            "ZipCode": "98053"
+        },
+        "Status": {
+            "Gold": true,
+            "Discount": 15
+        }
+    },
+    "PurchaseAmount": 1615,
+    "TaxRate": 20,
+    "PurchaseAmountPostTax": 1938
+}
+```
